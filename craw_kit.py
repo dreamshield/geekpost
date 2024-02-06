@@ -87,6 +87,10 @@ class ColumnTool:
         try:
             response = network_tool.get_request(chapter_url)
             soup = BeautifulSoup(response.content, 'html.parser')
+            # 删除广告标签
+            a_tags = soup.find_all('a', text=const.AD_TAG)
+            for a_tag in a_tags:
+                a_tag.extract()
             # 正文
             body = soup.find_all(class_="book-post")[0]
             # 标题

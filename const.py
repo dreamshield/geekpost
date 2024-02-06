@@ -27,3 +27,5 @@ HTML_TEMPLATE = """
 </html>
 """
 
+AD_TAG = "阿里云2C2G3M 99元/年，老用户也可以哦"
+
