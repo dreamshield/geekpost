@@ -136,6 +136,7 @@ class PdfTool:
             os.makedirs(const.POST_SAVE_TEMP_PDF_DIR)
 
         self.__file_name = file_name
+        self.__chapter_pdfs = []
 
     def save_chapter(self, chapter_html, chapter_name) -> None:
         """
