@@ -29,3 +29,5 @@ HTML_TEMPLATE = """
 
 AD_TAG = "阿里云2C2G3M 99元/年，老用户也可以哦"
 
+GEEK_TIME_POST_DIR = "~/Documents/Tech/GeekTime/"
+

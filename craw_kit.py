@@ -9,6 +9,7 @@ from loguru import logger
 import network_tool
 import const
 import re
+import shutil
 
 
 def simplify_column_name(src_name) -> str:
@@ -179,6 +180,7 @@ class PdfTool:
             save_fd = open(save_file_name, "wb")
             file_merge.write(save_fd)
             logger.info("WholePostSaved:postName={}".format(self.__file_name))
+            shutil.copyfile(save_file_name, const.GEEK_TIME_POST_DIR + self.__file_name + const.FILE_SUFFIX_PDF)
         except Exception as e:
             raise Exception("MergePdfException: exception={}".format(e))
 
