@@ -1,6 +1,8 @@
 # coding=utf-8
+import random
 import time
 
+import const
 import craw_kit
 import display
 import log_config
@@ -30,11 +32,11 @@ if __name__ == '__main__':
                     for chapter_name in chapter_names:
                         chapter_html_file = html_tool.parse_url_to_html(chapter_name)
                         pdf_tool.save_chapter(chapter_html_file, chapter_name)
-                        time.sleep(5)
+                        time.sleep(random.uniform(const.REQUEST_SLEEP_MIN_TIME, const.REQUEST_SLEEP_MAX_TIME))
                     pdf_tool.merge_post()
                     logger.info("专栏文章:{}处理完成.".format(column_name))
                     print("专栏文章:{}处理完成.".format(column_name))
             except Exception as e:
                 print("专栏文章:{}处理异常且已退出,exp={}.".format(column_name, e))
     else:
-        print("已退出!")
+        print("没有需要下载的专栏，已退出!")
